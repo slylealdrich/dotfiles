@@ -1,0 +1,21 @@
+configuration {
+	modi: "drun";
+	font: "Minecraft 12";
+}
+
+@theme "/dev/null"
+
+* {
+	color: white;
+	background-color: black;
+}
+
+window {
+	border: 1px;
+	border-color: white;
+	padding: 10px;
+}
+
+listview {
+	padding: 10px;
+}

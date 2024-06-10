@@ -1,6 +1,6 @@
 configuration {
 	modi: "drun";
-	font: "Minecraft 12";
+	font: "Monocraft 12";
 }
 
 @theme "/dev/null"

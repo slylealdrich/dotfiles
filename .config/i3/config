@@ -13,7 +13,8 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Minecraft 8
+font pango:Monocraft 8
+for_window [class="^.*"] border pixel 1 
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -37,6 +38,9 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 # change fix inputs
 bindsym $mod+Shift+p exec bash /usr/local/bin/swap_input.sh
 
+# suspend computer
+bindsym $mod+Ctrl+l exec --no-startup-id systemctl suspend
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -45,7 +49,8 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec xterm -fg white -bg black -fa 'Comic Code' -fs 12 -xrm 'XTerm*selectToClipboard:true'
+bindsym $mod+Return exec xterm
+# -fg white -bg black -fa 'Comic Code' -fs 12 -xrm 'XTerm*selectToClipboard:true'
 
 # start firefox
 bindsym $mod+Shift+f exec firefox
@@ -197,7 +202,7 @@ client.background	#000000
 
 bar {
 	status_command i3status
-	font pango:Minecraft 16
+	font pango:Monocraft 16
 	colors {
 		background #000000
 		statusline #FFFFFF

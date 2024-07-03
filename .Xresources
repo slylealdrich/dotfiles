@@ -1,6 +1,6 @@
 xterm*termName: xterm-256-color
 
-xterm*faceName: Comic Code
+xterm*faceName: ComicCode Nerd Font Mono
 xterm*faceSize: 12
 
 xterm*dynamicColors: true

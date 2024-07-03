@@ -1,3 +1,12 @@
+syntax on
+colorscheme zaibatsu
+
+set nocompatible
+
+filetype on
+filetype plugin on
+filetype indent on
+
 set autoindent
 set expandtab
 set shiftround
@@ -5,7 +14,7 @@ set shiftwidth=2
 set smarttab
 set tabstop=2
 
-set encoding=utf-8
+set background=dark
 
 set number
 set relativenumber

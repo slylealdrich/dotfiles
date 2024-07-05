@@ -8,6 +8,8 @@
 alias ls='ls -al --color=auto'
 alias grep='grep --color=auto'
 alias psql='sudo -u postgres psql'
+alias pn='pnpm'
+alias pnx='pnpm exec'
 # alias vim='nvim'
 
 export EDITOR=vim

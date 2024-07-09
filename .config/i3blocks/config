@@ -33,10 +33,14 @@ markup=none
 # See the script for details.
 
 [volume]
-command=$SCRIPT_DIR/volume
-label=♪ 
+command=$SCRIPT_DIR/volume-pipewire
 interval=once
 signal=10
+MIXER=pulse
+SCONTROL=Master
+LONG_FORMAT=${VOL}%
+label=♪ 
+color=#FF00FF
 
 # Memory usage
 #
@@ -45,56 +49,55 @@ signal=10
 command=$SCRIPT_DIR/memory
 label=MEM 
 interval=5
-color=#FF00FF
 
-[memory]
-label=SWAP
-instance=swap
-interval=30
+# [memory]
+# label=SWAP
+# instance=swap
+# interval=30
 
 # Disk usage
 #
 # The directory defaults to $HOME if the instance is not specified.
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
-[disk]
-label=HOME
-#DIR=/mnt/data
-interval=30
+# [disk]
+# label=HOME
+# DIR=/mnt/data
+# interval=30
 
 # Network interface monitoring
 #
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
-[iface]
-#IFACE=wlan0
-color=#00FF00
-interval=10
-separator=false
+# [iface]
+# IFACE=wlan0
+# color=#00FF00
+# interval=10
+# separator=false
 
-[wifi]
-#INTERFACE=wlp3s0
-label=wifi:
-interval=10
-separator=false
+# [wifi]
+# INTERFACE=wlp3s0
+# label=wifi:
+# interval=10
+# separator=false
 
-[bandwidth]
-#INTERFACE=eth0
-interval=5
+# [bandwidth]
+# INTERFACE=eth0
+# interval=5
 
 # CPU usage
 #
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
-[cpu_usage]
-label=CPU
-interval=10
-min_width=CPU 100.00%
-#separator=false
+# [cpu_usage]
+# label=CPU
+# interval=10
+# min_width=CPU 100.00%
+# separator=false
 
-[load_average]
-label=LOAD
-interval=10
+# [load_average]
+# label=LOAD
+# interval=10
 
 # Battery indicator
 #
@@ -103,12 +106,12 @@ interval=10
 command=$SCRIPT_DIR/battery-poly 
 label=⚡ 
 interval=5
+color=#FF00FF
 
 # Weather estimate
-[weather]
-command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
-interval=3600
-color=#FF00FF
+# [weather]
+# command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
+# interval=3600
 
 # Date Time
 #
@@ -121,26 +124,26 @@ interval=1
 # This displays "ARTIST - SONG" if a music is playing.
 # Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
 # Set to %any to automatically pick (Requires playerctl >=2.1.1)
-#[mediaplayer]
+# [mediaplayer]
 # This picks any player, with vlc as first, and spotify as last choice
-#instance=vlc,%any,spotify
-#interval=5
-#signal=10
+# instance=vlc,%any,spotify
+# interval=5
+# signal=10
 
 # OpenVPN support
 #
 # Support multiple VPN, with colors.
-#[openvpn]
-#interval=20
+# [openvpn]
+# interval=20
 
 # Temperature
 #
 # Support multiple chips, though lm-sensors.
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
-#[temperature]
-#label=TEMP
-#interval=10
+# [temperature]
+# label=TEMP
+# interval=10
 
 # Key indicators
 #
@@ -148,14 +151,14 @@ interval=1
 #
 # bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 # bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
-#[keyindicator]
-#KEY=CAPS
-#markup=pango
-#interval=once
-#signal=11
+# [keyindicator]
+# KEY=CAPS
+# markup=pango
+# interval=once
+# signal=11
 
-#[keyindicator]
-#KEY=NUM
-#markup=pango
-#interval=once
-#signal=11
+# [keyindicator]
+# KEY=NUM
+# markup=pango
+# interval=once
+# signal=11

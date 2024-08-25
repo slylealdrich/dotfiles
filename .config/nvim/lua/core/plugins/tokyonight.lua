@@ -5,10 +5,7 @@ return {
 		local tokyonight = require("tokyonight")
 
 		tokyonight.setup({
-			transparent = true,
-			on_colors = function(colors)
-				colors.bg = "#000000"
-			end,
+			transparent = false,
 		})
 		vim.cmd("colorscheme tokyonight")
 	end,

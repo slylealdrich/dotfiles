@@ -6,6 +6,8 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
+				javascript = { "prettier" },
+				typescript = { "prettier" },
 				lua = { "stylua" },
 				python = { "ruff_format" },
 			},

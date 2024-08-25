@@ -16,6 +16,9 @@ set $mod Mod4
 font pango:Monocraft 8
 for_window [class="^.*"] border pixel 1 
 
+# start picom compositor
+exec_always picom --config ~/.config/picom/picom.conf
+
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
@@ -24,21 +27,22 @@ exec --no-startup-id dex --autostart --environment i3
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# Adjust audio with wpctl.
+# fill background
+exec feh --bg-fill --randomize /home/sam/Documents/wallpapers/* &
+
+# Adjust audio.
 # set $refresh_i3status killall -SIGUSR1 i3status
 
 set $refresh_bar exec pkill -SIGRTMIN+10 i3blocks
-bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && $refresh_bar
-bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && $refresh_bar
-bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && $refresh_bar
-bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && $refresh_bar
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/.config/i3/scripts/raise_volume
+bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
 # Adjust brightness.
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +10% && $refresh_status
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10%- && $refresh_status
-
-# change fix inputs
-bindsym $mod+Shift+p exec bash /usr/local/bin/swap_input.sh
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +10%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10%-
 
 # suspend computer
 bindsym $mod+Ctrl+l exec --no-startup-id systemctl suspend
@@ -58,17 +62,14 @@ bindsym $mod+Return exec alacritty
 # start firefox
 bindsym $mod+Shift+f exec firefox
 
+# change wallpaper
+bindsym $mod+n exec feh --bg-fill --randomize $HOME/Documents/wallpapers/*
+
 # kill focused window
 bindsym $mod+Shift+c kill
 
-# start dmenu (a program launcher)
-# bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Minecraft'
-# bindsym $mod+d exec --no-startup-id dmenu_run -nf '#FFFFFF' -nb '#333333' -sb '#285577' -sf '#FFFFFF' -fn 'Minecraft' -p 'run'
-# A more modern dmenu replacement is rofi:
+# start rofi
 bindcode $mod+40 exec rofi -show drun -display-drun ">"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -161,8 +162,6 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+q reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -204,10 +203,12 @@ client.placeholder	#000000	#0C0C0C	#FFFFFF	#000000	#0C0C0C
 client.background	#000000
 
 bar {
-	status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks && $refresh_bar
+  i3bar_command i3bar -t
+	status_command i3status-rs
+  position top
 	font pango:Monocraft 12
 	colors {
-		background #000000
+		background #00000000
 		statusline #FFFFFF
 		separator  #FFFFFF
 

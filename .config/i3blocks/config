@@ -33,14 +33,20 @@ markup=none
 # See the script for details.
 
 [volume]
-command=$SCRIPT_DIR/volume-pipewire
+command=$SCRIPT_DIR/volume
 interval=once
 signal=10
-MIXER=pulse
-SCONTROL=Master
-LONG_FORMAT=${VOL}%
 label=♪ 
 color=#FF00FF
+
+# [volume-pipewire]
+# command=$SCRIPT_DIR/volume-pipewire
+# interval=once
+# signal=10
+# MIXER=pulse
+# SCONTROL=Master
+# LONG_FORMAT=${VOL}%
+# label=♪ 
 
 # Memory usage
 #

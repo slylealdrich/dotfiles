@@ -5,12 +5,13 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls -al --color=auto'
+alias ls='ls -alh --color=auto'
 alias grep='grep --color=auto'
 alias psql='sudo -u postgres psql'
 alias pn='pnpm'
 alias pnx='pnpm exec'
-alias sunvim='sudo -E nvim'
+alias sunv='sudo -E nvim'
+alias nv='nvim'
 # alias vim='nvim'
 
 export EDITOR=vim

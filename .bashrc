@@ -12,7 +12,6 @@ alias pn='pnpm'
 alias pnx='pnpm exec'
 alias sunv='sudo -E nvim'
 alias nv='nvim'
-# alias vim='nvim'
 
 export EDITOR=vim
 

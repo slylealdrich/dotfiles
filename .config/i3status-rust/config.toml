@@ -1,38 +1,43 @@
-icons_format = "{icon}"
-
 [theme]
-theme = "space-villain"
+theme = "slick"
 [theme.overrides]
-idle_bg = "#000000"
+separator = " "
+separator_bg = "#00000000"
+idle_bg = "#4f4f4f"
 idle_fg = "#ffffff"
+
+[icons]
+icons = "material-nf"
 
 [[block]]
 block = "sound"
 driver = "pulseaudio"
-format = " $icon: $volume "
 show_volume_when_muted = true
+format = " $volume $icon "
 
 [[block]]
 block="backlight"
 device="intel_backlight"
-format=" $icon: $brightness "
-[block.theme_overrides]
-idle_bg = "#FFFFFF"
-idle_fg = "#000000"
+format=" $brightness $icon "
+
+[[block]]
+block="net"
+device="wlp1s0"
+format=" $ssid at $signal_strength $icon "
 
 [[block]]
 block = "memory"
-interval = 1
-format = " $icon: $mem_total_used / $mem_total "
-format_alt = "$icon: $mem_total_used_percents"
+interval = 5
+format = "$mem_total_used / $mem_total $icon "
+format_alt = "$mem_total_used_percents $icon "
 
 [[block]]
 block = "battery"
 interval = 5
-format = " $icon: $percentage "
-full_format = " $icon: :D "
-empty_format = " $icon: D: "
-not_charging_format = " $icon: $percentage $time "
+format = " $percentage $icon "
+full_format = " :D $icon "
+empty_format = " D: $icon "
+not_charging_format = " $percentage $time $icon "
 good = 50
 warning = 20
 critical = 10
@@ -42,6 +47,6 @@ empty_threshold = 5
 [[block]]
 block = "time"
 interval = 1
-format = " $timestamp.datetime(f:'%r') "
+format = " $timestamp.datetime(f:'%r') $icon "
 [block.theme_overrides]
-idle_bg = "#505050"
+idle_bg = "#4f4f4f"

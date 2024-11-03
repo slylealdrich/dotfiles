@@ -16,4 +16,3 @@ alias sunvim='sudo -E nvim'
 export EDITOR=vim
 
 PS1='\[\033[1;35m\]\u \W\[\033[0;37m\] > '
-. "$HOME/.cargo/env"

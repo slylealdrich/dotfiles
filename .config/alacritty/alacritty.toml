@@ -8,8 +8,5 @@ size = 9.0
 [font.normal]
 family = "ComicCode Nerd Font Mono"
 
-[window.padding]
-x = 0
-
 [window]
 opacity = 0.7

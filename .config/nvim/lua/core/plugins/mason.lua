@@ -16,7 +16,6 @@ return {
 				"lua_ls",
 				"html",
 				"cssls",
-				"tsserver",
 				"svelte",
 				"tailwindcss",
 				"prismals",

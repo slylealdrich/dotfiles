@@ -20,6 +20,8 @@ return {
 				"tailwindcss",
 				"prismals",
 				"pyright",
+				"yamlls",
+				"docker_compose_language_service",
 			},
 		})
 

@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls -alh --color=auto'
+alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias psql='sudo -u postgres psql'
 alias pn='pnpm'

@@ -18,6 +18,18 @@ return {
 					capabilities = capabilities,
 				})
 			end,
+			["lua_ls"] = function()
+				lspconfig["lua_ls"].setup({
+					capabilities = capabilities,
+					settings = {
+						Lua = {
+							diagnostics = {
+								globals = { "vim" },
+							},
+						},
+					},
+				})
+			end,
 			["svelte"] = function()
 				lspconfig["svelte"].setup({
 					capabilities = capabilities,

@@ -12,6 +12,7 @@ alias pn='pnpm'
 alias pnx='pnpm exec'
 alias sunv='sudo -E nvim'
 alias nv='nvim'
+alias bat='bat --style=plain'
 
 export EDITOR=vim
 export PATH=~/.cargo/bin/:$PATH

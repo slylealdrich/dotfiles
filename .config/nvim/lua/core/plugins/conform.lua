@@ -6,16 +6,19 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
-				javascript = { "prettier" },
-				typescript = { "prettier" },
 				lua = { "stylua" },
 				python = { "ruff_format" },
+				javascript = { "prettier" },
+				typescript = { "prettier" },
 			},
-			format_on_save = {
+		})
+
+		vim.keymap.set({ "n" }, "<leader>FF", function()
+			conform.format({
 				lsp_fallback = true,
 				async = false,
 				timeout_ms = 1000,
-			},
-		})
+			})
+		end, { desc = "Format file" })
 	end,
 }

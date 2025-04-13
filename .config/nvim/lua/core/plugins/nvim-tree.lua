@@ -7,12 +7,7 @@ return {
 		vim.g.loaded_netrw = 1
 		vim.g.netrwPlugin = 1
 
-		nvimtree.setup({
-			view = {
-				width = 35,
-				relativenumber = true,
-			},
-		})
+		nvimtree.setup({})
 
 		local keymap = vim.keymap
 

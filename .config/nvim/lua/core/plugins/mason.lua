@@ -22,6 +22,7 @@ return {
         "pyright",
         "yamlls",
         "docker_compose_language_service",
+        "rust_analyzer",
       },
     })
 

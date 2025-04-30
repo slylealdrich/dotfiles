@@ -28,8 +28,8 @@ return {
       sources = {
         { name = "nvim_lsp" },
         { name = "vsnip" },
-        { name = "buffer" },
         { name = "path" },
+        { name = "buffer" },
       },
     })
   end,

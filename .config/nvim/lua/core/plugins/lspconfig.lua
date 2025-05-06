@@ -43,11 +43,11 @@ return {
           end,
         })
       end,
-      ["rust-analyzer"] = function()
-        lspconfig["rust-analyzer"].setup({
+      ["rust_analyzer"] = function()
+        lspconfig["rust_analyzer"].setup({
           capabilities = capabilities,
           settings = {
-            ["rust-analyzer"] = {
+            ["rust_analyzer"] = {
               check = {
                 command = "clippy",
               },

@@ -25,6 +25,7 @@ return {
         "docker_compose_language_service",
         "rust_analyzer",
         "slint_lsp",
+        "vtsls",
       },
     })
 

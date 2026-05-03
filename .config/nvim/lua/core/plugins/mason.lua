@@ -34,6 +34,7 @@ return {
         "prettier",
         "stylua",
         "ruff",
+        "tree-sitter-cli",
       },
     })
 

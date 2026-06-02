@@ -14,4 +14,14 @@ alias bat='bat --style=plain --paging=always'
 export EDITOR=nvim
 export PATH=~/bin/:~/.cargo/bin/:~/.local/bin/:$PATH
 
-PS1=$'\[\033[1;97m\]\u \W \[\033[0;91m\]\xe2\x99\xa5 \[\033[0;37m\]\[\033[0 q\]'
+# Prompt
+
+BRIGHT_WHITE=$'\[\e[1;97m\]'
+RED=$'\[\e[0;91m\]'
+WHITE=$'\[\e[0;37m\]'
+RESET=$'\[\e[0m\]'
+
+HEART=$'\u2665'
+CURSOR=$'\[\e[0 q\]'
+
+PS1="$BRIGHT_WHITE\u$RESET $BRIGHT_WHITE\W$RESET $RED$HEART$RESET $CURSOR"
